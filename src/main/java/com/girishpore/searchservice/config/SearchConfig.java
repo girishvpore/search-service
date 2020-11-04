@@ -1,7 +1,7 @@
 package com.girishpore.searchservice.config;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -22,6 +22,6 @@ public class SearchConfig {
 
     @Bean
     public AWSStaticCredentialsProvider awsDynamoCredentialsProviderDevelopment() {
-        return new AWSStaticCredentialsProvider(new EnvironmentVariableCredentialsProvider().getCredentials());
+        return new AWSStaticCredentialsProvider(new DefaultAWSCredentialsProviderChain().getCredentials());
     }
 }
