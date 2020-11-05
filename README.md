@@ -35,7 +35,7 @@ Alternatively, you can also run application from Docker container:
 Open a browser and hit [http://LOCAL_DOCKER_IP:8080/](http://LOCAL_DOCKER_IP:8080/) 
 
 Api request and responses
-###1. search by Plan name
+### 1. Search by Plan name
 ```
 ~ $ curl -X GET "http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/employees/search/byPlanName?offset=0&size=1&value=BORO" -H "accept: application/json" | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -52,7 +52,7 @@ Api request and responses
   }
 ]
 ```
-##2. search by Sponsor name
+### 2. Search by Sponsor name
 ```$xslt
 ~ $ curl -X GET "http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/employees/search/bySponsorName?offset=1&size=2&value=BORO" -H "accept: application/json" | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -78,7 +78,7 @@ Api request and responses
 ]
 ```
 
-### 3. search by Sponsor state
+### 3. Search by Sponsor state
 ```$xslt
 ~ $ curl -X GET "http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/employees/search/bySponsorState?offset=0&size=3&value=IL" -H "accept: application/json" | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -134,3 +134,7 @@ Loadbalancer, VPC and Subnet configuration
 ## API Gateway 
 API Gateway configuration
 ![Alt text](images/ApiGateway.png) 
+
+##  Improvements
+- Parameter validation
+- Automate the deployment using code templates for aws
