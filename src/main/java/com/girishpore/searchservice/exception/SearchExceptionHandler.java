@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.Objects;
 
 /**
- * Advice for handling exceptions
+ * Advice for handling exceptions, uses spring AOP feature
  */
 @ControllerAdvice
 @Slf4j

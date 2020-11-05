@@ -13,7 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfiguration;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
-
+/**
+ * Creates RestHighLevelClient to connect to AWS elastic search
+ */
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.girishpore.searchservice.dao")
 public class ElasticSearchClientConfig extends AbstractElasticsearchConfiguration {

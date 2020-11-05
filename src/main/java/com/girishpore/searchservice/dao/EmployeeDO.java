@@ -7,7 +7,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 
 /**
- * Data object
+ * Data object to store values returned by elastic search
  */
 @Data
 @Builder

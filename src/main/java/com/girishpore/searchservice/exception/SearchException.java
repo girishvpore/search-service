@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
  */
 public class SearchException extends RuntimeException {
     private final Error error;
+
     public SearchException(HttpStatus status, String errorMessage) {
         super(errorMessage);
         this.error = new Error(status.name(), status);

@@ -5,6 +5,9 @@ import org.springframework.http.HttpStatus;
 
 import java.util.Date;
 
+/**
+ * Class to store error details
+ */
 @Data
 public class Error {
     private String message;

@@ -4,12 +4,31 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
-@Repository
-public interface EmployeeDao  extends ElasticsearchRepository<EmployeeDO, String> {
 
+/**
+ * Spring data extended interface to get data from elasic search
+ */
+@Repository
+public interface EmployeeDao extends ElasticsearchRepository<EmployeeDO, String> {
+
+    /**
+     * @param planName plan name to be searched
+     * @param pageable page attributes
+     * @return Page of searched data
+     */
     Page<EmployeeDO> findByPlanName(String planName, Pageable pageable);
 
-    Page<EmployeeDO> findBySponsorName(String planName, Pageable pageable);
+    /**
+     * @param sponsorName plan name to be searched
+     * @param pageable    page attributes
+     * @return Page of searched data
+     */
+    Page<EmployeeDO> findBySponsorName(String sponsorName, Pageable pageable);
 
-    Page<EmployeeDO> findBySponsorState(String planName, Pageable pageable);
+    /**
+     * @param sponsorState plan name to be searched
+     * @param pageable     page attributes
+     * @return Page of searched data
+     */
+    Page<EmployeeDO> findBySponsorState(String sponsorState, Pageable pageable);
 }

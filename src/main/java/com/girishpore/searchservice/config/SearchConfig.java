@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Configuration for AWS provide
+ */
 @Configuration
 public class SearchConfig {
 
@@ -20,6 +23,10 @@ public class SearchConfig {
         };
     }
 
+    /**
+     * Uses AWSCredentialsProviderChain to find the credentials
+     * @see <a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html"</a>
+     */
     @Bean
     public AWSStaticCredentialsProvider awsDynamoCredentialsProviderDevelopment() {
         return new AWSStaticCredentialsProvider(new DefaultAWSCredentialsProviderChain().getCredentials());

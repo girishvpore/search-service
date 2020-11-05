@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 /**
- * This class represents some employee attributes used to demostrate search result
+ * This class represents some employee attributes used to demonstrate search result
  */
 public class Employee {
     /**
