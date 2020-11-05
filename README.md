@@ -8,7 +8,7 @@ A micro service that invokes AWS elastic search and make it available using API 
 * Logstash
 * AWS API Gateway
     
-#Run
+# Run
 Before run set environment variables for AWS role (i.e access key and secret)
     
 
@@ -78,7 +78,7 @@ Api request and responses
 ]
 ```
 
-###3. search by Sponsor state
+### 3. search by Sponsor state
 ```$xslt
 ~ $ curl -X GET "http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/employees/search/bySponsorState?offset=0&size=3&value=IL" -H "accept: application/json" | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -112,16 +112,17 @@ Api request and responses
 ]
 ```
 
-#Swagger 
+# Swagger 
    * Swagger url : http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/swagger-ui.html
    * Api Docs Url : http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/v2/api-docs
    
-#Deployment Architecture
+# Deployment Architecture
 ![Alt text](images/DeploymentDiagram.png)
 
 * Logstash is used to load data into elastic search
  
-#Elastic Container Service
+# Elastic Container Service
+
 ## Cluster details
 Cluster enabled for autoscaling
 ![Alt text](images/Cluster.png) 
