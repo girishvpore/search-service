@@ -29,7 +29,7 @@ Alternatively, you can also run application from Docker container:
 Open a browser and hit [http://LOCAL_DOCKER_IP:8080/](http://LOCAL_DOCKER_IP:8080/) 
 
 Api request and responses
-####1. search by Plan name
+###1. search by Plan name
 ```
 $ curl -X GET "http://localhost:8080/employees/search/byPlanName?offset=0&size=2&value=BORO" -H "accept: application/json" | jq .
      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -53,7 +53,7 @@ $ curl -X GET "http://localhost:8080/employees/search/byPlanName?offset=0&size=2
        "businessCode": "236200"
      }
 ```
-####2. search by Sponsor name
+##2. search by Sponsor name
 ```$xslt
 ~ $ curl -X GET "http://localhost:8080/employees/search/bySponsorName?offset=0&size=1&value=BORO%20DEVELOPERS%2C%20INC." -H "accept: application/json" | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -71,7 +71,7 @@ $ curl -X GET "http://localhost:8080/employees/search/byPlanName?offset=0&size=2
 ]
 ```
 
-####3. search by Sponsor state
+###3. search by Sponsor state
 ```$xslt
 ~ $ curl -X GET "http://localhost:8080/employees/search/bySponsorState?offset=0&size=3&value=PA" -H "accept: application/json" | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
