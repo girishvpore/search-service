@@ -1,7 +1,13 @@
 # search-service : 
 A micro service that invokes AWS elastic search and make it available using API gateway
 <BR>
-
+## Tech stack
+* Springboot 
+* AWS elastic search
+* Elastic Container Service 
+* Logstash
+* AWS API Gateway
+    
 #Run
 Before run set environment variables for AWS role (i.e access key and secret)
     
@@ -31,34 +37,10 @@ Open a browser and hit [http://LOCAL_DOCKER_IP:8080/](http://LOCAL_DOCKER_IP:808
 Api request and responses
 ###1. search by Plan name
 ```
-$ curl -X GET "http://localhost:8080/employees/search/byPlanName?offset=0&size=2&value=BORO" -H "accept: application/json" | jq .
-     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                    Dload  Upload   Total   Spent    Left  Speed
-   100   393    0   393    0     0    944      0 --:--:-- --:--:-- --:--:--   944
-   [
-     {
-       "ein": "231997150",
-       "planName": "BORO DEVELOPERS, INC. RETIREMENT PLAN",
-       "sponsorName": "BORO DEVELOPERS, INC.",
-       "sponsorState": "PA",
-       "ackId": "20181011150916P030171114541001",
-       "businessCode": "236200"
-     },
-     {
-       "ein": "231997150",
-       "planName": "BORO CONSTRUCTION HEALTH AND WELFARE PLAN",
-       "sponsorName": "BORO DEVELOPERS, INC.",
-       "sponsorState": "PA",
-       "ackId": "20181220175039P030098766381001",
-       "businessCode": "236200"
-     }
-```
-##2. search by Sponsor name
-```$xslt
-~ $ curl -X GET "http://localhost:8080/employees/search/bySponsorName?offset=0&size=1&value=BORO%20DEVELOPERS%2C%20INC." -H "accept: application/json" | jq .
+~ $ curl -X GET "http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/employees/search/byPlanName?offset=0&size=1&value=BORO" -H "accept: application/json" | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   195    0   195    0     0    789      0 --:--:-- --:--:-- --:--:--   789
+100   195    0   195    0     0    711      0 --:--:-- --:--:-- --:--:--   711
 [
   {
     "ein": "231997150",
@@ -70,38 +52,84 @@ $ curl -X GET "http://localhost:8080/employees/search/byPlanName?offset=0&size=2
   }
 ]
 ```
-
-###3. search by Sponsor state
+##2. search by Sponsor name
 ```$xslt
-~ $ curl -X GET "http://localhost:8080/employees/search/bySponsorState?offset=0&size=3&value=PA" -H "accept: application/json" | jq .
+~ $ curl -X GET "http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/employees/search/bySponsorName?offset=1&size=2&value=BORO" -H "accept: application/json" | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   550    0   550    0     0   5445      0 --:--:-- --:--:-- --:--:--  5445
+100   438    0   438    0     0   1403      0 --:--:-- --:--:-- --:--:--  1403
 [
   {
-    "ein": "822399322",
-    "planName": "MLW FUN, INC. RETIREMENT PLAN",
-    "sponsorName": "MLW FUN, INC.",
-    "sponsorState": "PA",
-    "ackId": "20180920105010P040130759581001",
-    "businessCode": "812990"
+    "ein": "112699881",
+    "planName": "BORO LAND SURVEYING P.C. RETIREMENT PLAN AND TRUST",
+    "sponsorName": "BORO LAND SURVEYING P.C.",
+    "sponsorState": "NY",
+    "ackId": "20181206142040P030090315457001",
+    "businessCode": "541370"
   },
   {
-    "ein": "251673066",
-    "planName": "AB SPECIALTIES, INC. PROFIT SHARING PLAN",
-    "sponsorName": "AB SPECIALTIES, INC.",
+    "ein": "231919676",
+    "planName": "TRI-BORO CONSTRUCTION SUPPLIES, INC. GROUP MEDICAL PLAN",
+    "sponsorName": "TRI-BORO CONSTRUCTION SUPPLIES, INC.",
     "sponsorState": "PA",
-    "ackId": "20180731102319P030070982493001",
-    "businessCode": "238900"
-  },
-  {
-    "ein": "251890050",
-    "planName": "ACUSIS 401(K) PROFIT SHARING PLAN",
-    "sponsorName": "ACUSIS",
-    "sponsorState": "PA",
-    "ackId": "20180731131716P030093767431001",
-    "businessCode": "518210"
+    "ackId": "20180815130343P040003945465001",
+    "businessCode": "423700"
   }
 ]
 ```
 
+###3. search by Sponsor state
+```$xslt
+~ $ curl -X GET "http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/employees/search/bySponsorState?offset=0&size=3&value=IL" -H "accept: application/json" | jq .
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   630    0   630    0     0   2943      0 --:--:-- --:--:-- --:--:--  2943
+[
+  {
+    "ein": "362762569",
+    "planName": "CAPITOL WHOLESALE MEATS, INC. PROFIT SHARING AND RETIREMENT PLAN",
+    "sponsorName": "CAPITOL WHOLESALE MEATS, INC.",
+    "sponsorState": "IL",
+    "ackId": "20180919134812P040129431469001",
+    "businessCode": "311610"
+  },
+  {
+    "ein": "364400687",
+    "planName": "LENOX HEALTHCARE PROFIT SHARING 401(K) PLAN AND TRUST",
+    "sponsorName": "JACK W. LENOX, LTD.",
+    "sponsorState": "IL",
+    "ackId": "20180919174006P030009321269001",
+    "businessCode": "621111"
+  },
+  {
+    "ein": "271067590",
+    "planName": "ILLINOIS CORN PROCESSING 401(K) & PROFIT SHARING PLAN",
+    "sponsorName": "ICP",
+    "sponsorState": "IL",
+    "ackId": "20180920124450P030008076025001",
+    "businessCode": "312140"
+  }
+]
+```
+
+#Swagger 
+   * Swagger url : http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/swagger-ui.html
+   * Api Docs Url : http://ec2co-ecsel-152m0nzgfmzpp-395898793.us-west-2.elb.amazonaws.com:8080/v2/api-docs
+   
+#Deployment Architecture
+![Alt text](images/DeploymentDiagram.png)
+
+* Logstash is used to load data into elastic search
+ 
+#Elastic Container Service
+## Cluster details
+Cluster enabled for autoscaling
+![Alt text](images/Cluster.png) 
+
+## LoadBalancer 
+Loadbalancer, VPC and Subnet configuration
+![Alt text](images/LoadBalancer.png) 
+
+## API Gateway 
+API Gateway configuration
+![Alt text](images/ApiGateway.png) 
