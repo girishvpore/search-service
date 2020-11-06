@@ -20,7 +20,7 @@ output {
         index => "benefits"
         document_type => "employee"
         <aws credential key>
-        <aws credential value>
+        <aws credential secret>
   }
 
 }

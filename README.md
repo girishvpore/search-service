@@ -140,4 +140,4 @@ API Gateway configuration
 - Automate the deployment using code templates for aws
 
 ## Logstash configuration
-[Logstash config](logstsh/ebsa.txt)
+[Logstash config](https://raw.githubusercontent.com/girishvpore/search-service/main/logstash/ebsa.txt)
