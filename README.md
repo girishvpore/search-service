@@ -138,3 +138,6 @@ API Gateway configuration
 ##  Improvements
 - Parameter validation
 - Automate the deployment using code templates for aws
+
+## Logstash configuration
+[Logstash config](logstsh/ebsa.txt)
